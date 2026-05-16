@@ -1,0 +1,45 @@
+# Single source of truth for training hyperparams.
+# Loaded by training/train_unsloth.py.
+
+[model]
+base = "google/gemma-4-31B-it"
+max_seq_length = 4096           # bumped for workflow pairs + multi-turn dialogues
+load_in_4bit = true
+bnb_4bit_quant_type = "nf4"
+bnb_4bit_use_double_quant = true
+bnb_4bit_compute_dtype = "bfloat16"
+
+[lora]
+r = 16
+alpha = 32
+dropout = 0.0
+target_modules = ["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]
+bias = "none"
+use_rslora = false
+use_gradient_checkpointing = "unsloth"
+
+[data]
+train_path = "data/out/train.jsonl"
+eval_path  = "data/out/eval.jsonl"
+
+# User-turn prompt that wraps each source. Kept identical at inference time.
+instruction = "Rewrite in caveman-mode. Drop articles, filler, pleasantries. Keep code blocks byte-exact. Preserve technical meaning."
+
+[train]
+output_dir = "artifacts/adapter"
+num_train_epochs = 3
+per_device_train_batch_size = 2
+gradient_accumulation_steps = 8   # effective batch 16 on H100 80GB (smaller per-device for 4k context)
+learning_rate = 2e-4
+lr_scheduler_type = "cosine"
+warmup_ratio = 0.05
+weight_decay = 0.01
+optim = "adamw_8bit"
+bf16 = true
+logging_steps = 10
+save_strategy = "epoch"
+eval_strategy = "epoch"
+save_total_limit = 2
+report_to = "wandb"
+seed = 42
+packing = false                   # critical: do not pack code-bearing samples

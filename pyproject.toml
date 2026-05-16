@@ -1,0 +1,41 @@
+[project]
+name = "finetune-caveman"
+version = "0.1.0"
+description = "Fine-tune Gemma 4 31B to speak caveman-mode natively"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "MIT" }
+authors = [{ name = "Julius Brussee" }]
+
+dependencies = [
+    "datasets>=2.20",
+    "transformers>=4.46",
+    "huggingface-hub>=0.26",
+    "sentence-transformers>=3.0",
+    "tiktoken>=0.7",
+    "tqdm>=4.66",
+    "tomli>=2.0; python_version < '3.11'",
+    "rich>=13.7",
+]
+
+[project.optional-dependencies]
+train = [
+    # Installed on RunPod only — heavy GPU deps. Keep out of local install.
+    "torch>=2.4",
+    "peft>=0.13",
+    "trl>=0.11",
+    "bitsandbytes>=0.44",
+    "accelerate>=1.0",
+    "wandb>=0.18",
+]
+
+[tool.uv]
+dev-dependencies = ["ruff>=0.6", "pytest>=8.0"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501"]

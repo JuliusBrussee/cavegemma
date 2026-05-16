@@ -1,0 +1,200 @@
+{"prompt": "Why does my React component re-render every time the parent updates?", "topic": "canonical"}
+{"prompt": "Explain database connection pooling.", "topic": "canonical"}
+{"prompt": "What's the difference between TCP and UDP?", "topic": "canonical"}
+{"prompt": "How do I fix a memory leak in a long-running Node.js process?", "topic": "canonical"}
+{"prompt": "What does the SQL EXPLAIN command tell me?", "topic": "canonical"}
+{"prompt": "How does a hash table handle collisions?", "topic": "canonical"}
+{"prompt": "Why am I getting CORS errors in my browser console?", "topic": "canonical"}
+{"prompt": "What's the point of using a debouncer on a search input?", "topic": "canonical"}
+{"prompt": "How does git rebase differ from git merge?", "topic": "canonical"}
+{"prompt": "When should I use a queue vs a topic in messaging systems?", "topic": "canonical"}
+{"prompt": "How do I fix a memory leak in a Spark pipeline?", "topic": "problem"}
+{"prompt": "How does OAuth differ from SAML?", "topic": "a"}
+{"prompt": "What does the vmstat command tell me?", "topic": "tool"}
+{"prompt": "How do I fix a TLS expiry in a Spark pipeline?", "topic": "problem"}
+{"prompt": "Show me how to stream a large file.", "topic": "action"}
+{"prompt": "What causes OOMKilled and how do I prevent it?", "topic": "error"}
+{"prompt": "What's the difference between REST and SAML?", "topic": "a"}
+{"prompt": "What are the trade-offs of git stash vs UDP?", "topic": "a"}
+{"prompt": "Show me how to build a rate limiter.", "topic": "action"}
+{"prompt": "Show me how to compress a payload.", "topic": "action"}
+{"prompt": "What's the point of using feature flags in a Kubernetes deployment?", "topic": "context"}
+{"prompt": "How does TCP differ from polyrepo?", "topic": "a"}
+{"prompt": "Walk me through WebSocket.", "topic": "protocol"}
+{"prompt": "How does SQL differ from GraphQL?", "topic": "a"}
+{"prompt": "How do I debug a race condition?", "topic": "problem"}
+{"prompt": "What's the difference between TypeScript and gRPC?", "topic": "a"}
+{"prompt": "What's the best way to deduplicate a stream in C#?", "topic": "action"}
+{"prompt": "How does merge differ from merge?", "topic": "a"}
+{"prompt": "Why is my Node service slow under load?", "topic": "thing"}
+{"prompt": "Show me how to write idempotent endpoints.", "topic": "action"}
+{"prompt": "How do I write a the outbox pattern in C#?", "topic": "pattern"}
+{"prompt": "Why am I getting broken pipe in my browser console?", "topic": "error"}
+{"prompt": "Explain consistent hashing.", "topic": "concept"}
+{"prompt": "What's the point of using a circuit breaker in a Postgres-backed API?", "topic": "context"}
+{"prompt": "What's the point of using CQRS in Python asyncio?", "topic": "context"}
+{"prompt": "How does rebase differ from Podman?", "topic": "a"}
+{"prompt": "How does a bloom filter handle concurrent writes?", "topic": "data_structure"}
+{"prompt": "Why am I getting TLS handshake failures in production only?", "topic": "error"}
+{"prompt": "What's the difference between git stash and polyrepo?", "topic": "a"}
+{"prompt": "How does a ring buffer handle resize?", "topic": "data_structure"}
+{"prompt": "How does Kafka topic differ from SAML?", "topic": "a"}
+{"prompt": "How do I debug a memory leak?", "topic": "problem"}
+{"prompt": "What's the point of using the outbox pattern in a long-running Node.js process?", "topic": "context"}
+{"prompt": "Why is my Docker container slow under load?", "topic": "thing"}
+{"prompt": "What's the difference between REST and Protobuf?", "topic": "a"}
+{"prompt": "How do I debug a deadlock?", "topic": "problem"}
+{"prompt": "How does Java handle iterators?", "topic": "language"}
+{"prompt": "What does the tcpdump command tell me?", "topic": "tool"}
+{"prompt": "What does the perf command tell me?", "topic": "tool"}
+{"prompt": "Show me how to rotate a secret.", "topic": "action"}
+{"prompt": "How does JSON Schema differ from pnpm?", "topic": "a"}
+{"prompt": "What's the best way to build a rate limiter in TypeScript?", "topic": "action"}
+{"prompt": "What are the trade-offs of promise vs topic?", "topic": "a"}
+{"prompt": "Explain io_uring.", "topic": "concept"}
+{"prompt": "How do I fix a N+1 query in an Android app?", "topic": "problem"}
+{"prompt": "How does an LRU cache handle overflow?", "topic": "data_structure"}
+{"prompt": "What's the difference between TypeScript and Flow?", "topic": "a"}
+{"prompt": "How do I write a event sourcing in Elixir?", "topic": "pattern"}
+{"prompt": "How does Kafka topic differ from UDP?", "topic": "a"}
+{"prompt": "How do I fix a TLS expiry in a React app?", "topic": "problem"}
+{"prompt": "How does Postgres differ from gRPC?", "topic": "a"}
+{"prompt": "When should I use yarn vs polyrepo?", "topic": "a"}
+{"prompt": "What is database connection pooling and when do I need it?", "topic": "concept"}
+{"prompt": "How does process differ from polyrepo?", "topic": "a"}
+{"prompt": "What are the trade-offs of REST vs SSE?", "topic": "a"}
+{"prompt": "What are the trade-offs of git stash vs GraphQL?", "topic": "a"}
+{"prompt": "What does the lsof command tell me?", "topic": "tool"}
+{"prompt": "How does a CRDT counter handle partial failure?", "topic": "data_structure"}
+{"prompt": "What are the trade-offs of TCP vs git worktree?", "topic": "a"}
+{"prompt": "How do I debug a flaky test?", "topic": "problem"}
+{"prompt": "Why does my Node service miss messages?", "topic": "thing"}
+{"prompt": "When should I use OAuth vs rebase?", "topic": "a"}
+{"prompt": "What's the point of using a circuit breaker in a SwiftUI view?", "topic": "context"}
+{"prompt": "What's the difference between promise and topic?", "topic": "a"}
+{"prompt": "Show me how to implement a worker pool.", "topic": "action"}
+{"prompt": "What does the EXPLAIN ANALYZE command tell me?", "topic": "tool"}
+{"prompt": "How does Elixir handle generics?", "topic": "language"}
+{"prompt": "How does process differ from git worktree?", "topic": "a"}
+{"prompt": "Walk me through HTTP/3.", "topic": "protocol"}
+{"prompt": "When should I use TypeScript vs Podman?", "topic": "a"}
+{"prompt": "What is epoll and when do I need it?", "topic": "concept"}
+{"prompt": "What are the trade-offs of rebase vs gRPC?", "topic": "a"}
+{"prompt": "What's the point of using a circuit breaker in a Lambda function?", "topic": "context"}
+{"prompt": "What causes DNS_PROBE_FINISHED_NXDOMAIN and how do I prevent it?", "topic": "error"}
+{"prompt": "What's the point of using retries with backoff in a SwiftUI view?", "topic": "context"}
+{"prompt": "Why does my Node service leak memory?", "topic": "thing"}
+{"prompt": "What's the point of using a debouncer in Python asyncio?", "topic": "context"}
+{"prompt": "What are the trade-offs of OAuth vs PATCH?", "topic": "a"}
+{"prompt": "How does Rust handle channels?", "topic": "language"}
+{"prompt": "What causes 401 from Cognito and how do I prevent it?", "topic": "error"}
+{"prompt": "How does Rust handle iterators?", "topic": "language"}
+{"prompt": "How do I fix a race condition in an Android app?", "topic": "problem"}
+{"prompt": "Walk me through gRPC.", "topic": "protocol"}
+{"prompt": "What is io_uring and when do I need it?", "topic": "concept"}
+{"prompt": "How do I fix a memory leak in Django views?", "topic": "problem"}
+{"prompt": "What's the point of using retries with backoff in a Lambda function?", "topic": "context"}
+{"prompt": "Show me how to verify a webhook.", "topic": "action"}
+{"prompt": "What does the kubectl describe command tell me?", "topic": "tool"}
+{"prompt": "How does a heap handle resize?", "topic": "data_structure"}
+{"prompt": "What's the point of using event sourcing in Python asyncio?", "topic": "context"}
+{"prompt": "Explain shadow traffic.", "topic": "concept"}
+{"prompt": "Show me how to paginate efficiently.", "topic": "action"}
+{"prompt": "What's the difference between OAuth and polyrepo?", "topic": "a"}
+{"prompt": "Walk me through MQTT.", "topic": "protocol"}
+{"prompt": "How does Rust handle macros?", "topic": "language"}
+{"prompt": "Explain Raft consensus.", "topic": "concept"}
+{"prompt": "Why is my React component slow under load?", "topic": "thing"}
+{"prompt": "What is B-tree indexes and when do I need it?", "topic": "concept"}
+{"prompt": "Walk me through BGP.", "topic": "protocol"}
+{"prompt": "Show me how to graceful shutdown.", "topic": "action"}
+{"prompt": "How does TypeScript handle memory?", "topic": "language"}
+{"prompt": "When should I use REST vs rebase?", "topic": "a"}
+{"prompt": "What causes broken pipe and how do I prevent it?", "topic": "error"}
+{"prompt": "Explain blue-green deploys.", "topic": "concept"}
+{"prompt": "How does Elixir handle channels?", "topic": "language"}
+{"prompt": "How does a hash table handle overflow?", "topic": "data_structure"}
+{"prompt": "What's the difference between monorepo and topic?", "topic": "a"}
+{"prompt": "How do I write a a circuit breaker in Rust?", "topic": "pattern"}
+{"prompt": "What causes stale closure and how do I prevent it?", "topic": "error"}
+{"prompt": "Explain feature flags.", "topic": "concept"}
+{"prompt": "What's the difference between yarn and Protobuf?", "topic": "a"}
+{"prompt": "How do I debug a infinite loop?", "topic": "problem"}
+{"prompt": "Why am I getting TLS handshake failures in a Lambda cold start?", "topic": "error"}
+{"prompt": "How does TypeScript differ from NoSQL?", "topic": "a"}
+{"prompt": "When should I use rebase vs MySQL?", "topic": "a"}
+{"prompt": "What's the difference between TCP and merge?", "topic": "a"}
+{"prompt": "How do I write a feature flags in Python?", "topic": "pattern"}
+{"prompt": "What's the difference between Kafka topic and GraphQL?", "topic": "a"}
+{"prompt": "What are the trade-offs of PUT vs NoSQL?", "topic": "a"}
+{"prompt": "What's the best way to stream a large file in Rust?", "topic": "action"}
+{"prompt": "What's the best way to write idempotent endpoints in TypeScript?", "topic": "action"}
+{"prompt": "What is page cache and when do I need it?", "topic": "concept"}
+{"prompt": "How do I write a shadow testing in Elixir?", "topic": "pattern"}
+{"prompt": "Why does my GraphQL resolver ignore env vars?", "topic": "thing"}
+{"prompt": "When should I use REST vs NoSQL?", "topic": "a"}
+{"prompt": "How does REST differ from gRPC?", "topic": "a"}
+{"prompt": "How does WebSocket differ from git worktree?", "topic": "a"}
+{"prompt": "Why am I getting broken pipe in production only?", "topic": "error"}
+{"prompt": "How does process differ from callback?", "topic": "a"}
+{"prompt": "How does merge differ from topic?", "topic": "a"}
+{"prompt": "Walk me through QUIC.", "topic": "protocol"}
+{"prompt": "How do I debug a N+1 query?", "topic": "problem"}
+{"prompt": "How does monorepo differ from merge?", "topic": "a"}
+{"prompt": "How do I fix a race condition in a Spark pipeline?", "topic": "problem"}
+{"prompt": "What does the py-spy command tell me?", "topic": "tool"}
+{"prompt": "Explain page cache.", "topic": "concept"}
+{"prompt": "What's the best way to implement healthchecks in Elixir?", "topic": "action"}
+{"prompt": "When should I use Docker vs rebase?", "topic": "a"}
+{"prompt": "What's the best way to build a rate limiter in Rust?", "topic": "action"}
+{"prompt": "How do I fix a stale cache in a React app?", "topic": "problem"}
+{"prompt": "Walk me through OIDC.", "topic": "protocol"}
+{"prompt": "What does the eBPF command tell me?", "topic": "tool"}
+{"prompt": "What's the point of using rate limiting in Go goroutines?", "topic": "context"}
+{"prompt": "Walk me through TCP.", "topic": "protocol"}
+{"prompt": "How does a bloom filter handle partial failure?", "topic": "data_structure"}
+{"prompt": "Walk me through DNS resolution.", "topic": "protocol"}
+{"prompt": "What's the point of using rate limiting in a Postgres-backed API?", "topic": "context"}
+{"prompt": "How do I fix a thundering herd in a long-running Node.js process?", "topic": "problem"}
+{"prompt": "How does Rust handle memory?", "topic": "language"}
+{"prompt": "What is MVCC and when do I need it?", "topic": "concept"}
+{"prompt": "When should I use OAuth vs SAML?", "topic": "a"}
+{"prompt": "Why does my GraphQL resolver deadlock?", "topic": "thing"}
+{"prompt": "Why is my CI build slow under load?", "topic": "thing"}
+{"prompt": "How does queue differ from PATCH?", "topic": "a"}
+{"prompt": "What's the best way to graceful shutdown in Elixir?", "topic": "action"}
+{"prompt": "Why is my GraphQL resolver slow under load?", "topic": "thing"}
+{"prompt": "Show me how to deduplicate a stream.", "topic": "action"}
+{"prompt": "Why does my Node service throw 502?", "topic": "thing"}
+{"prompt": "How does a heap handle collisions?", "topic": "data_structure"}
+{"prompt": "How do I fix a DNS resolution failure in Django views?", "topic": "problem"}
+{"prompt": "What's the best way to deduplicate a stream in Java?", "topic": "action"}
+{"prompt": "How do I write a the strangler fig pattern in Python?", "topic": "pattern"}
+{"prompt": "Why is my Spark job slow under load?", "topic": "thing"}
+{"prompt": "How does merge differ from pnpm?", "topic": "a"}
+{"prompt": "Why does my Redis client ignore env vars?", "topic": "thing"}
+{"prompt": "Why am I getting EPIPE in CI?", "topic": "error"}
+{"prompt": "What's the difference between Postgres and git worktree?", "topic": "a"}
+{"prompt": "How do I debug a TLS expiry?", "topic": "problem"}
+{"prompt": "How do I fix a infinite loop in a React app?", "topic": "problem"}
+{"prompt": "When should I use yarn vs MySQL?", "topic": "a"}
+{"prompt": "Why is my Lambda function slow under load?", "topic": "thing"}
+{"prompt": "When should I use Kafka topic vs NoSQL?", "topic": "a"}
+{"prompt": "Why am I getting OOMKilled in a Lambda cold start?", "topic": "error"}
+{"prompt": "When should I use WebSocket vs GraphQL?", "topic": "a"}
+{"prompt": "How do I write a shadow testing in Kotlin?", "topic": "pattern"}
+{"prompt": "What is leaky bucket and when do I need it?", "topic": "concept"}
+{"prompt": "What is consistent hashing and when do I need it?", "topic": "concept"}
+{"prompt": "Why am I getting DNS_PROBE_FINISHED_NXDOMAIN in CI?", "topic": "error"}
+{"prompt": "How does a B-tree handle concurrent writes?", "topic": "data_structure"}
+{"prompt": "What are the trade-offs of git stash vs MySQL?", "topic": "a"}
+{"prompt": "What's the difference between OAuth and SSE?", "topic": "a"}
+{"prompt": "What's the point of using rate limiting in a Lambda function?", "topic": "context"}
+{"prompt": "Why does my React component deadlock?", "topic": "thing"}
+{"prompt": "How does C# handle errors?", "topic": "language"}
+{"prompt": "What is circuit breakers and when do I need it?", "topic": "concept"}
+{"prompt": "Why is my API endpoint slow under load?", "topic": "thing"}
+{"prompt": "Why is my Postgres query slow under load?", "topic": "thing"}
+{"prompt": "Why does my Spark job stall under load?", "topic": "thing"}
+{"prompt": "How does a CRDT counter handle resize?", "topic": "data_structure"}
+{"prompt": "Explain sidecar pattern.", "topic": "concept"}

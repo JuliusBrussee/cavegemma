@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+
+# data outputs — checkpoint manually, do not blanket-commit
+data/out/
+artifacts/
+
+# secrets
+.env
+.runpod_key
+
+# uv lock kept; only ignore caches
+.uv-cache/
+
+# misc
+.DS_Store
+.forge/
+.idea/
+.vscode/
