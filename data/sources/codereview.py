@@ -1,9 +1,10 @@
 """ronantakizawa/github-codereview — diff + review-comment pairs with severity tags.
 
-Each row has a diff hunk and a human review comment plus `comment_type` (bug/security/
-performance/refactor/style/suggestion/nitpick/question). We feed the diff as context and
-the human comment as source_normal (verbose review feedback), and caveman-rewrite to terse
-[line:] severity: problem. fix. format that matches caveman repo's caveman-review.toml.
+Each row holds before/after code, a `diff_context` hunk, and a human `reviewer_comment`
+tagged with `comment_type` (bug/security/performance/refactor/style/suggestion/question).
+We feed the diff as context and the human comment as source_normal (verbose review
+feedback). Caveman-rewrite produces terse [line:] severity: problem. fix. format that
+matches caveman repo's caveman-review.toml.
 """
 
 from __future__ import annotations
@@ -13,7 +14,8 @@ from typing import Any
 
 from data.sources._util import cli_main, looks_english, word_count
 
-KEEP_TYPES = {"bug", "security", "performance", "refactor", "suggestion"}
+# All comment types are legitimate review styles; we filter only on quality + length.
+KEEP_TYPES: set[str] = set()  # empty = accept all
 
 
 def iter_records(limit: int = 500) -> Iterator[dict[str, Any]]:
@@ -24,32 +26,38 @@ def iter_records(limit: int = 500) -> Iterator[dict[str, Any]]:
     for row in ds:
         if emitted >= limit:
             return
-        comment = row.get("comment", "") or ""
-        diff = row.get("diff_hunk", "") or row.get("hunk", "") or row.get("code", "") or ""
+        comment = (row.get("reviewer_comment") or "").strip()
+        diff = (row.get("diff_context") or "").strip()
         ctype = (row.get("comment_type") or "").lower()
-        if ctype and ctype not in KEEP_TYPES:
+        quality = row.get("quality_score") or 0
+        if not comment or not diff:
             continue
-        if word_count(comment) < 15 or word_count(comment) > 400:
+        if KEEP_TYPES and ctype not in KEEP_TYPES:
             continue
-        if not diff.strip() or not looks_english(comment):
+        if word_count(comment) < 6 or word_count(comment) > 500:
+            continue
+        if quality and quality < 0.2:
+            continue
+        if not looks_english(comment):
             continue
         diff_trim = diff if len(diff) < 2500 else diff[:2500] + "\n... [truncated]"
+        lang = (row.get("language") or "").lower()
         prompt = f"Review this {ctype or 'change'} and explain the issue + fix."
         normal = (
-            "DIFF:\n```diff\n"
+            f"DIFF ({lang}):\n```{lang}\n"
             + diff_trim
             + "\n```\n\nREVIEW COMMENT:\n"
             + comment.strip()
         )
-        idx = row.get("id") or row.get("comment_id") or emitted
+        idx = row.get("pr_number") or emitted
         emitted += 1
         yield {
             "prompt": prompt,
             "source_normal": normal,
             "source_seed": None,
             "category": "review",
-            "origin": f"github-codereview:{idx}:{ctype or 'unspec'}",
-            "license": "mit",  # subset is permissive; per-row license not exposed
+            "origin": f"github-codereview:{idx}:{ctype or 'unspec'}:{emitted}",
+            "license": "mit",
         }
 
 

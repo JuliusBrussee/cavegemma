@@ -38,8 +38,16 @@ DEFAULT_QUOTAS = {
 }
 
 
-def _hash_prompt(p: str) -> str:
-    return sha1(p.strip().lower().encode("utf-8")).hexdigest()[:16]
+def _hash_record(rec: dict) -> str:
+    """Dedup key. Includes content, not just prompt — many sources emit identical
+    boilerplate prompts (`Walk me through this Python refactor.`) and we want every
+    distinct row through, not just the first one."""
+    body = (
+        rec.get("prompt", "").strip().lower()
+        + "::"
+        + (rec.get("source_normal") or rec.get("source_seed") or "")[:500].strip()
+    )
+    return sha1(body.encode("utf-8")).hexdigest()[:16]
 
 
 def main() -> None:
@@ -77,7 +85,7 @@ def main() -> None:
                 for rec in mod.iter_records(limit=target * 2):
                     if got >= target:
                         break
-                    h = _hash_prompt(rec["prompt"])
+                    h = _hash_record(rec)
                     if h in seen:
                         continue
                     seen.add(h)
@@ -98,3 +106,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+    # Streaming datasets keep background connection threads alive after the loop
+    # exits, causing the process to hang for minutes on natural shutdown. Force exit.
+    import os
+    os._exit(0)

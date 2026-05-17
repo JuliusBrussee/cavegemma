@@ -39,11 +39,13 @@ WORD_RE = re.compile(r"\b\w+\b")
 TURN_RE = re.compile(r"^### (user|assistant)\s*$", re.MULTILINE)
 
 COMPRESSION_BANDS = {
-    "qa":       (0.10, 0.85),
-    "review":   (0.20, 0.85),
-    "debug":    (0.20, 0.85),
-    "refactor": (0.20, 0.85),
-    "dialogue": (0.30, 0.90),
+    # Loosened upper bounds. Eval gates are stricter; training data only needs to
+    # demonstrate compression. Anything > 1.0 is expansion (reject).
+    "qa":       (0.10, 1.00),
+    "review":   (0.20, 1.00),
+    "debug":    (0.20, 1.00),
+    "refactor": (0.20, 1.00),
+    "dialogue": (0.30, 1.00),
 }
 
 
