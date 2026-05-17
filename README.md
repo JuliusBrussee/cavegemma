@@ -2,7 +2,7 @@
   <img src="https://em-content.zobj.net/source/apple/391/rock_1faa8.png" width="120" />
 </p>
 
-<h1 align="center">finetune-caveman</h1>
+<h1 align="center">cavegemma</h1>
 
 <p align="center">
   <strong>why use many token when few do trick — now baked in weights</strong>
@@ -155,7 +155,7 @@ Cost end-to-end: **~$4-5 pod time**. Less than lunch.
 ## Repo layout
 
 ```
-finetune-caveman/
+cavegemma/
 ├── data/
 │   ├── seeds/                 caveman repo snapshots (SKILL.md, eval prompts)
 │   ├── sources/               per-source HuggingFace loaders
@@ -198,11 +198,11 @@ uv run python data/filter.py --in data/out/raw_pairs.jsonl --out data/out/clean_
 uv run python data/split.py --in data/out/clean_pairs.jsonl
 
 # 4. RunPod H100 / RTX PRO 6000 — rsync, ssh, bootstrap, train
-rsync -avz --exclude='.git' --exclude='.venv' -e "ssh -p <port> -i ~/.ssh/id_ed25519" ./ root@<pod>:/workspace/finetune-caveman/
+rsync -avz --exclude='.git' --exclude='.venv' -e "ssh -p <port> -i ~/.ssh/id_ed25519" ./ root@<pod>:/workspace/cavegemma/
 ssh -i ~/.ssh/id_ed25519 -p <port> root@<pod> "
   export HF_TOKEN=...
   export WANDB_API_KEY=...
-  cd /workspace/finetune-caveman
+  cd /workspace/cavegemma
   bash training/runpod_bootstrap.sh
   python training/train_unsloth.py --config training/config.toml
 "
@@ -243,7 +243,7 @@ Three rocks. One philosophy: **model do more with less**.
 | [**caveman**](https://github.com/JuliusBrussee/caveman) | Output compression skill — *why use many token when few do trick* |
 | [**cavemem**](https://github.com/JuliusBrussee/cavemem) | Cross-agent memory — *why agent forget when agent can remember* |
 | [**cavekit**](https://github.com/JuliusBrussee/cavekit) | Spec-driven build loop — *why agent guess when agent can know* |
-| **finetune-caveman** *(you here)* | Caveman baked into weights — *why prompt every session when weights remember* |
+| **cavegemma** *(you here)* | Caveman baked into weights — *why prompt every session when weights remember* |
 
 Skill compresses any model at runtime. This repo welds the same style into Gemma 4 31B so caveman survives across hosts, agents, no-system-prompt setups. Cheap inference, no skill loader, same brain.
 
@@ -268,7 +268,7 @@ Skill compresses any model at runtime. This repo welds the same style into Gemma
 
 Star cost zero. Help small mouth find big audience. ⭐
 
-[![Star History Chart](https://api.star-history.com/svg?repos=JuliusBrussee/finetune-caveman&type=Date)](https://star-history.com/#JuliusBrussee/finetune-caveman&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=JuliusBrussee/cavegemma&type=Date)](https://star-history.com/#JuliusBrussee/cavegemma&Date)
 
 ## Also by Julius Brussee
 
