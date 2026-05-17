@@ -33,6 +33,7 @@ def main() -> None:
         load_in_4bit=True,
         dtype=None,
     )
+    tokenizer = getattr(tokenizer, "tokenizer", tokenizer)   # unwrap Gemma4Processor
     FastLanguageModel.for_inference(model)
 
     prompts = [ln.strip() for ln in PROMPTS.read_text(encoding="utf-8").splitlines() if ln.strip()]

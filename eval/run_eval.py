@@ -16,9 +16,10 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-from eval.metrics import aggregate  # noqa: E402
-
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))  # allow `python eval/run_eval.py` from project root
+
+from eval.metrics import aggregate  # noqa: E402
 
 INSTRUCTION = (
     "Rewrite in caveman-mode. Drop articles, filler, pleasantries. "
@@ -76,6 +77,7 @@ def main() -> None:
         load_in_4bit=True,
         dtype=None,
     )
+    tokenizer = getattr(tokenizer, "tokenizer", tokenizer)   # unwrap Gemma4Processor
     FastLanguageModel.for_inference(model)
 
     def generate(user_msg: str) -> str:

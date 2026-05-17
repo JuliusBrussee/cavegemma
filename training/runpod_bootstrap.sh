@@ -10,21 +10,20 @@ python --version
 
 echo ">>> Install Unsloth + deps"
 # Unsloth handles its own torch / xformers / bitsandbytes pinning; let it.
-pip install --upgrade pip
-pip install "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
-pip install --no-deps "trl<0.18" peft accelerate bitsandbytes
-pip install datasets sentence-transformers wandb tomli rich tqdm
+pip install --break-system-packages --upgrade pip
+pip install --break-system-packages "unsloth[colab-new] @ git+https://github.com/unslothai/unsloth.git"
+pip install --break-system-packages --no-deps "trl<0.18" peft accelerate bitsandbytes
+pip install --break-system-packages datasets sentence-transformers wandb tomli rich tqdm
 
 echo ">>> Auth"
-if [ -n "${HF_TOKEN:-}" ]; then
-    huggingface-cli login --token "$HF_TOKEN" --add-to-git-credential
-else
-    echo "WARN: HF_TOKEN not set. Run: huggingface-cli login"
+# huggingface_hub auto-reads HF_TOKEN env var; no login required.
+if [ -z "${HF_TOKEN:-}" ]; then
+    echo "WARN: HF_TOKEN not set — gated model downloads (Gemma 4) will 401."
 fi
 if [ -n "${WANDB_API_KEY:-}" ]; then
-    wandb login --relogin "$WANDB_API_KEY"
+    wandb login --relogin "$WANDB_API_KEY" || echo "wandb login failed (continuing without)"
 else
-    echo "WARN: WANDB_API_KEY not set. Skipping wandb login (set report_to='none' in config.toml if you don't want it)."
+    echo "WARN: WANDB_API_KEY not set. Set report_to='none' in config.toml or training disables metric logging."
 fi
 
 echo ">>> Sanity check"

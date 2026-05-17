@@ -11,8 +11,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from pathlib import Path
+
+# Must be set BEFORE `import unsloth`. Required by Unsloth ≥ 2024.11 when used with
+# TRL's SFTTrainer — otherwise compute_loss raises NotImplementedError.
+os.environ["UNSLOTH_RETURN_LOGITS"] = "1"
 
 try:
     import tomllib  # py311+
@@ -54,6 +59,9 @@ def main() -> None:
         load_in_4bit=mc["load_in_4bit"],
         dtype=None,  # let Unsloth pick bf16 on H100
     )
+    # Gemma 4 is multimodal; Unsloth returns a Gemma4Processor. TRL's SFTTrainer
+    # needs the inner text tokenizer (with `convert_tokens_to_ids`, padding, etc).
+    tokenizer = getattr(tokenizer, "tokenizer", tokenizer)
 
     print(">>> Attaching LoRA adapters")
     model = FastLanguageModel.get_peft_model(
@@ -107,21 +115,26 @@ def main() -> None:
         seed=tc["seed"],
         packing=tc["packing"],
         max_seq_length=mc["max_seq_length"],
-        assistant_only_loss=True,    # mask user turn out of loss
-        completion_only_loss=True,   # belt and suspenders
+        completion_only_loss=True,   # mask user turn from loss (TRL 0.17 API)
         dataset_text_field="text",
     )
 
     trainer = SFTTrainer(
         model=model,
-        tokenizer=tokenizer,
+        processing_class=tokenizer,   # renamed from `tokenizer` in TRL 0.17
         train_dataset=dataset["train"],
         eval_dataset=dataset["eval"],
         args=sft_cfg,
     )
 
     print(">>> Starting training")
-    trainer.train()
+    # Auto-resume from the latest checkpoint in output_dir if one exists.
+    out_dir = Path(tc["output_dir"])
+    resume = any(p.name.startswith("checkpoint-") for p in out_dir.glob("*")) if out_dir.exists() else False
+    if resume:
+        print(f"    found existing checkpoint(s) under {out_dir} — resuming")
+    os.environ["UNSLOTH_RETURN_LOGITS"] = "1"   # belt-and-suspenders before train()
+    trainer.train(resume_from_checkpoint=resume)
 
     out = Path(tc["output_dir"])
     print(f">>> Saving final adapter -> {out}")
