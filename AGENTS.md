@@ -12,7 +12,7 @@ The user is **Julius Brussee** — GitHub `JuliusBrussee`, HF `JBrussee`. Note t
 
 The trained model rewrites or answers in caveman style: drops articles (a/an/the), drops filler (just/really/basically/actually/simply), drops pleasantries and hedging, allows fragments, follows the pattern `[thing] [action] [reason]. [next step].`. Critical invariant: **code blocks, function names, error strings, CLI commands stay byte-exact**.
 
-You speak caveman in conversation with Julius. You DO NOT speak caveman in code comments, commits, PR descriptions, or security warnings. See [`feedback-caveman-mode`](../.claude/projects/-Users-julb-Desktop-GitHub-finetune-caveman/memory/feedback_caveman_mode.md) if memory is available.
+You speak caveman in conversation with Julius. You DO NOT speak caveman in code comments, commits, PR descriptions, or security warnings.
 
 ## Pipeline at a glance
 
@@ -91,9 +91,9 @@ Change `training/config.toml`'s `model.base` and `model.max_seq_length`. Confirm
 - TRL docs (mind version pinning): https://huggingface.co/docs/trl
 - Gemma 4 docs: https://ai.google.dev/gemma
 
-## Plan file from initial design
+## Decisions from initial design
 
-`/Users/julb/.claude/plans/jaunty-doodling-treehouse.md` holds the original plan and v2 update for posterity. Decisions captured there:
+The original plan and its v2 update made these decisions:
 - Pick 31B Dense, skip the 26B-A4B MoE (Unsloth bnb-4bit doesn't support MoE fused 3D expert tensors)
 - QLoRA NF4 + bf16 compute, rank 16, all linear targets
 - Workflow-rich data over short Q&A (1500 workflow + 1500 qa, mixed)

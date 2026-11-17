@@ -12,7 +12,6 @@
   <a href="https://huggingface.co/JBrussee/gemma-4-31B-caveman"><img src="https://img.shields.io/badge/🤗%20Model-Gemma%204%2031B%20Caveman-yellow" alt="HF Model"></a>
   <a href="https://huggingface.co/JBrussee/gemma-4-31B-caveman-lora"><img src="https://img.shields.io/badge/🤗%20Adapter-LoRA%20534MB-blue" alt="HF LoRA"></a>
   <a href="https://github.com/JuliusBrussee/caveman"><img src="https://img.shields.io/badge/style-caveman-orange" alt="Style"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License"></a>
 </p>
 
 <p align="center">
@@ -26,13 +25,13 @@
 
 ---
 
-Gemma 4 31B, fine-tuned until it speaks [caveman](https://github.com/JuliusBrussee/caveman) natively. No skill file. No system prompt. No `/caveman` toggle. You ask a question, it answers in a quarter fewer tokens, and the code blocks come back byte-exact.
+Gemma 4 31B, fine-tuned until it speaks [caveman](https://github.com/JuliusBrussee/caveman) natively. No skill file. No system prompt. No `/caveman` toggle. You ask a question, it answers in about a quarter fewer tokens than the verbose reference answers, and the code blocks come back byte-exact.
 
 Brain big. Mouth small.
 
 ## The number
 
-**27% fewer output tokens across 193 held-out pairs.** Meaning preserved at 0.91–0.98 cosine. Code fences reproduced byte-exact 96–100% of the time.
+**27% fewer output tokens than the verbose reference answers, across 193 held-out pairs.** This is measured against those reference answers, not against base Gemma. Meaning preserved at 0.91–0.98 cosine. Code fences reproduced byte-exact 96–100% of the time.
 
 That's the honest weighted average, and it hides a wide spread:
 
@@ -297,7 +296,7 @@ Four rocks. One philosophy: **model do more with less.**
 
 | Repo | What |
 |---|---|
-| [**caveman**](https://github.com/JuliusBrussee/caveman) | Output compression skill, 73k★, *why use many token when few do trick* |
+| [**caveman**](https://github.com/JuliusBrussee/caveman) | Output compression skill, *why use many token when few do trick* |
 | [**cavemem**](https://github.com/JuliusBrussee/cavemem) | Cross-agent memory, *why agent forget when agent can remember* |
 | [**cavekit**](https://github.com/JuliusBrussee/cavekit) | Spec-driven build loop, *why agent guess when agent can know* |
 | **cavegemma** *(you here)* | Caveman welded into weights, *why prompt every session when weights remember* |
@@ -306,7 +305,7 @@ The skill compresses any model at runtime and costs you a prompt. This repo puts
 
 ## License
 
-Code here is **MIT**. The adapter and merged model inherit the [Gemma terms](https://ai.google.dev/gemma/terms), Apache 2.0 plus the Prohibited Use Policy. Style ruleset and seed pairs come from [`JuliusBrussee/caveman`](https://github.com/JuliusBrussee/caveman), MIT.
+The adapter and merged model inherit the [Gemma terms](https://ai.google.dev/gemma/terms), Apache 2.0 plus the Prohibited Use Policy. Style ruleset and seed pairs come from [`JuliusBrussee/caveman`](https://github.com/JuliusBrussee/caveman), Apache-2.0.
 
 ## Citing
 

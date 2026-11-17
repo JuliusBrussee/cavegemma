@@ -2,7 +2,7 @@
 
 Run:
     huggingface-cli login
-    python scripts/push_to_hub.py --adapter artifacts/adapter --repo julb/gemma-4-31B-caveman-lora
+    python scripts/push_to_hub.py --adapter artifacts/adapter --repo <hf-user>/gemma-4-31B-caveman-lora
 """
 
 from __future__ import annotations
@@ -61,7 +61,7 @@ MODEL_CARD = dedent(
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--adapter", required=True, type=Path)
-    ap.add_argument("--repo", required=True, help="hf repo id, e.g. julb/gemma-4-31B-caveman-lora")
+    ap.add_argument("--repo", required=True, help="hf repo id, e.g. <hf-user>/gemma-4-31B-caveman-lora")
     ap.add_argument("--private", action="store_true")
     args = ap.parse_args()
 
