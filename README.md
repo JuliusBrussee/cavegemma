@@ -275,7 +275,7 @@ python eval/run_eval.py --adapter artifacts/adapter --eval data/out/eval.jsonl -
 python scripts/push_to_hub.py --adapter artifacts/adapter --repo <hf-user>/gemma-4-31B-caveman-lora
 ```
 
-Stick to `--workers 3`. Eight concurrent workers burned a Claude Max budget in ten minutes, since each invocation drags ~24k tokens of session bootstrap behind it.
+Stick to `--workers 3`. More concurrent workers hit CLI rate limits fast, since each invocation drags ~24k tokens of session bootstrap behind it.
 
 ## Datasets
 
